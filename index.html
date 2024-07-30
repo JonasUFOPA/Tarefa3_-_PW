@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Login</title>
+    <style>
+      .escondido {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form id="formularioLogin">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required /><br /><br />
+      <button type="submit">Entrar</button>
+    </form>
+    <div id="mensagemBoasVindas" class="escondido">
+      <h2>Bem-vindo!</h2>
+      <p>Você está logado!</p>
+      <button id="botaoSair">Sair</button>
+    </div>
+    <script>
+      document
+        .getElementById('formularioLogin')
+        .addEventListener('submit', function (evento) {
+          evento.preventDefault()
+          document.getElementById('formularioLogin').style.display = 'none'
+          document.getElementById('mensagemBoasVindas').style.display = 'block'
+        })
+
+      document
+        .getElementById('botaoSair')
+        .addEventListener('click', function () {
+          document.getElementById('formularioLogin').style.display = 'block'
+          document.getElementById('mensagemBoasVindas').style.display = 'none'
+          document.getElementById('formularioLogin').reset()
+        })
+    </script>
+  </body>
+</html>
